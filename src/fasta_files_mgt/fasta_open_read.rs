@@ -27,11 +27,8 @@ pub mod fasta_open_read {
 	let args: Vec<String> = env::args().collect();
 	let config = Config::new(&args);
 	
-	println!("Alignement de {}", config.filename1);
-	println!("avec {}", config.filename2);
+	println!("Alignement de {} avec {} \n", config.filename1, config.filename2);
 	
-	println!("{:?}", args);
-
         fasta_read_seq::fasta_read_seq(config);
     }
 }
