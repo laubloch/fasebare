@@ -15,8 +15,8 @@ pub mod build_sequences_matrix {
 			match_bonus: f32,
 			gap_penalty: f32) {
 //			-> Matrix<f32> {
-	print_seq(&sequence1);
-	print_seq(&sequence2);
+//	print_seq(&sequence1);
+//	print_seq(&sequence2);
 
 	let l_seq1: usize = (sequence1.1).len();
 	let l_seq2: usize = (sequence2.1).len();
@@ -31,8 +31,10 @@ pub mod build_sequences_matrix {
 	nw_matrix(&mut the_mat, l_seq2+1, l_seq1+1, match_bonus, gap_penalty, &sequence1.1, &sequence2.1);
 
 	print_vector(&sequence1.1);
+
+	print_vector(&sequence2.1);
 	    
-	print_matrix(&the_mat, &sequence2.1, l_seq2+1, l_seq1+1);
+//	print_matrix(&the_mat, &sequence2.1, l_seq2+1, l_seq1+1);
     }
 
     pub fn nw_matrix(the_mat: &mut Matrix::<f32>,
