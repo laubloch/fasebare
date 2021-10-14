@@ -37,7 +37,7 @@ pub mod build_sequences_matrix {
 //	print_matrix(&the_mat, &sequence2.1, l_seq2+1, l_seq1+1);
     }
 
-    pub fn nw_matrix(the_mat: &mut Matrix::<f32>,
+    fn nw_matrix(the_mat: &mut Matrix::<f32>,
 		     lin: usize,
 		     col: usize,
 		     match_bonus: f32,
@@ -82,7 +82,7 @@ pub mod build_sequences_matrix {
 // "print_seq" affiche une séquence selon différents formats.
     pub fn print_seq(sequence: &(String, Vec<u8>)) {
 		println!("Ident : {:?}", sequence.0);
-		println!("Séquence : {:?}", sequence.1);
+//		println!("Séquence : {:?}", sequence.1);
 		let sequence_str = str::from_utf8(&sequence.1).unwrap().to_string();
 		println!("Séquence : {}", &sequence_str);
     }
