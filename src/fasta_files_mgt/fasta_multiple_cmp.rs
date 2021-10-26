@@ -17,6 +17,7 @@ pub mod fasta_multiple_cmp {
     use std::str;
 
     use crate::sequences_matrix::build_sequences_matrix::build_sequences_matrix::print_seq;
+    use crate::sequences_matrix::build_sequences_matrix::build_sequences_matrix::build_matrix;
     
     pub struct Config {
 	pub query_filename: String,
@@ -129,14 +130,13 @@ pub mod fasta_multiple_cmp {
 	    let bank_sequence = get_sequence(&mut count, &mut ident, &mut fb_iter);
 	    if bank_sequence.1.len() == 0 {
 		break} else {
-		print_seq(&bank_sequence);
+//		print_seq(&bank_sequence);
+		build_matrix(&query_sequence,
+			     &bank_sequence,
+			     match_bonus,
+			     gap_penalty);
 	    }
 	}
-
-//	build_matrix(query_sequence,
-//		     bank_sequence,
-//		     match_bonus,
-//		     gap_penalty);
     }
 }
 

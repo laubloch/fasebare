@@ -10,8 +10,8 @@ pub mod build_sequences_matrix {
     use std::str;
     use std::char;
     
-    pub fn build_matrix(sequence1: (String, Vec<u8>),
-			sequence2: (String, Vec<u8>),
+    pub fn build_matrix(sequence1: &(String, Vec<u8>),
+			sequence2: &(String, Vec<u8>),
 			match_bonus: f32,
 			gap_penalty: f32) {
 //			-> Matrix<f32> {
@@ -30,11 +30,13 @@ pub mod build_sequences_matrix {
 
 	nw_matrix(&mut the_mat, l_seq2+1, l_seq1+1, match_bonus, gap_penalty, &sequence1.1, &sequence2.1);
 
-	print_vector(&sequence1.1);
+	print_ident(&sequence1);
+	print_ident(&sequence2);
 
-	print_vector(&sequence2.1);
-	    
 //	print_matrix(&the_mat, &sequence2.1, l_seq2+1, l_seq1+1);
+
+	print_score(&the_mat, l_seq2+1, l_seq1+1);
+	    
     }
 
     fn nw_matrix(the_mat: &mut Matrix::<f32>,
@@ -64,14 +66,14 @@ pub mod build_sequences_matrix {
 	}
     }
 
-    pub fn max3(v1: f32, v2: f32, v3: f32) -> f32 {
+    fn max3(v1: f32, v2: f32, v3: f32) -> f32 {
 	let tmp = f32::max(v2, v3);
 	if v1 > tmp {
 	    return v1 } else {
 	    return tmp };
     }
     
-    pub fn init_matrix(the_mat: &mut Matrix::<f32>, lin: usize, col: usize, val: f32) {
+    fn init_matrix(the_mat: &mut Matrix::<f32>, lin: usize, col: usize, val: f32) {
 	for i in 0..lin {
 	    for j in 0..col {
 		the_mat.set(i, j, val) ;
@@ -87,7 +89,7 @@ pub mod build_sequences_matrix {
 		println!("Séquence : {}", &sequence_str);
     }
 
-    pub fn print_vector(the_vec: &Vec<u8>) {
+    fn print_vector(the_vec: &Vec<u8>) {
 	let vec_str = str::from_utf8(the_vec).unwrap().to_string();
 	print!("{} ", "   ");
 	for c in vec_str.chars() {
@@ -96,7 +98,7 @@ pub mod build_sequences_matrix {
 	print!("{}", "   \n");
     }
     
-    pub fn print_matrix(the_mat: &Matrix::<f32>, seq2: &Vec<u8>, lin: usize, col: usize) {
+    fn print_matrix(the_mat: &Matrix::<f32>, seq2: &Vec<u8>, lin: usize, col: usize) {
 	for i in 0..lin {
 	    if i > 0 {print!("{} ", char::from(seq2[i-1]))} else
 	    {print!("{} ", " ")};
@@ -105,5 +107,14 @@ pub mod build_sequences_matrix {
 	    }
 	    print!("{}", "\n")
 	}
+    }
+
+    fn print_score(the_mat: &Matrix::<f32>, lin: usize, col: usize) {
+	println!("Score de similarité : {} ", the_mat.get(lin-1, col-1).unwrap());
+	print!("{}", "\n")
+    }
+
+    fn print_ident(sequence: &(String, Vec<u8>)) {
+	println!("Ident : {:?}", sequence.0);
     }
 }
