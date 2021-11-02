@@ -97,21 +97,6 @@ pub mod fasta_multiple_cmp {
 	sequence
     }
 
-
-//    fn read_sequences(f: File) {
-//	let fb = BufReader::new(&f);
-//	let mut lines = fb.lines();
-//	let mut count: u8 = 0;
-//	let mut ident = String::new();
-//	loop {
-//	    let sequence = get_sequence(&mut count, &mut ident, &mut lines);
-//	    if sequence.1.len() == 0 {
-//		break} else {
-//		print_seq(&sequence);
-//	    }
-//	}
-//  }
-
     fn read_sequences(f_query: File,
 		      f_bank: File,
 		      match_bonus: f32,

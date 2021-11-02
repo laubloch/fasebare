@@ -14,9 +14,6 @@ pub mod build_sequences_matrix {
 			sequence2: &(String, Vec<u8>),
 			match_bonus: f32,
 			gap_penalty: f32) {
-//			-> Matrix<f32> {
-//	print_seq(&sequence1);
-//	print_seq(&sequence2);
 
 	let l_seq1: usize = (sequence1.1).len();
 	let l_seq2: usize = (sequence2.1).len();
