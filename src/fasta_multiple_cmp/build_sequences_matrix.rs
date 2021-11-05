@@ -1,10 +1,10 @@
-// src/sequences_matrix/build_sequences_matrix.rs :
+// src/build_sequences_matrix.rs :
 
 // This module was inspired by Vincent Esche's Seal crate,
 // but simplified and much more basic, without mmap and so on.
 // For pedagogic use.
 
-pub mod build_sequences_matrix {
+// pub mod build_sequences_matrix {
 
     use simple_matrix::Matrix;
     use std::str;
@@ -114,4 +114,4 @@ pub mod build_sequences_matrix {
     fn print_ident(sequence: &(String, Vec<u8>)) {
 	println!("Ident : {:?}", sequence.0);
     }
-}
+// }
