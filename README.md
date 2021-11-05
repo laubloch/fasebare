@@ -1,8 +1,8 @@
-# fasebare_newual
+# fasebare
 
 ## Synopsis
 
-The crate `needleman_wunsch` of the `fasebare_newual` package consists of two Rust modules:
+The crate `needleman_wunsch` of the `fasebare` package consists of two Rust modules:
 
 * `fasta_multiple_cmp` provides functions to read biological sequences (DNA, RNA or proteins) in FASTA formatted files;
 * `sequences_matrix` provides functions to build an alignment matrix of two sequences and to compute their similarity score, according to the [Needleman-Wunsch algorithm](https://en.wikipedia.org/wiki/Needleman%E2%80%93Wunsch_algorithm).
